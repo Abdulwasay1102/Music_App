@@ -40,6 +40,7 @@ return (
       <NavLink 
         className="nav-link fs-4" 
         to="/" 
+         onClick={() => setOpen(false)}
         // data-bs-dismiss="offcanvas"
       >
         Home
@@ -56,7 +57,7 @@ return (
         <li className="nav-item">
           <NavLink 
             className="nav-link text-white" 
-            to="/hollywood" 
+            to="/category/hollywood songs" 
              onClick={() => setOpen(false)}
             // data-bs-dismiss="offcanvas"
           >
@@ -66,7 +67,8 @@ return (
         <li className="nav-item">
           <NavLink 
             className="nav-link text-white" 
-            to="/bollywood" 
+            to="/category/bollywood songs" 
+            onClick={() => setOpen(false)}
             // data-bs-dismiss="offcanvas"
           >
             Bollywood Songs
@@ -86,12 +88,12 @@ return (
 
     <ul className="nav nav-pills flex-column gap-2">
       <li className="nav-item">
-        <NavLink className="nav-link text-white" to="/hollywood">
+        <NavLink className="nav-link text-white" to="/category/hollywood songs">
           Hollywood Songs
         </NavLink>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link text-white" to="/bollywood">
+        <NavLink className="nav-link  text-white" to="/category/bollywood songs">
           Bollywood Songs
         </NavLink>
       </li>

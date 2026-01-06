@@ -10,18 +10,10 @@ const Layout = () => {
         {
             path:'/',
             element:<Home/>,
-            children:[{
-                path:'sidebar',
-                element:<Sidebar/>
-            }]
         },
         {
-            path:'/hollywood',
-            element:<Hollywood/>
-        },
-          {
-            path:'/bollywood',
-            element:<Bollywood/>
+          path:'/category/:term',
+          element:<Home/>
         }
     ])
   return (

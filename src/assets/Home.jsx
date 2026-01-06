@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react'
 import Card from '../components/card'
 import Sidebar from '../components/Sidebar'
 import { ScaleLoader } from 'react-spinners'
+import { useParams } from 'react-router-dom'
 
 const Home = () => {
-    const [search,setSearch]=useState("Smack that")
+    const {term}=useParams()
+    const [search,setSearch]=useState( term || "Smack that")
     const [song,setSong]=useState([])
     const [loader,setLoader]=useState(false)
     const fetchmusic = async ()=>{
@@ -23,6 +25,15 @@ const Home = () => {
         }
         
     }
+    useEffect(()=>{
+        if (term) {
+            setSearch(term)
+            
+        }
+        else{
+            setSearch("smack that")
+        }
+    },[term])
     useEffect(()=>{
         fetchmusic()
     },[search])
