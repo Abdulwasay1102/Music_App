@@ -9,6 +9,7 @@ const Home = () => {
     const {term}=useParams()
     const [search,setSearch]=useState( term || "Smack that")
     const [song,setSong]=useState([])
+    const [debouncer, setDebouncer] = useState("")
     const [loader,setLoader]=useState(false)
     const fetchmusic = async ()=>{
         try{
@@ -35,8 +36,16 @@ const Home = () => {
         }
     },[term])
     useEffect(()=>{
-        fetchmusic()
+      const handler = setTimeout(() => {
+        if (search) {
+            setDebouncer(search)
+            fetchmusic(search)    
+        }
+      }, 500);
+      return  ()=> clearTimeout(handler)
     },[search])
+     
+    
    
   return (
    <>
@@ -71,12 +80,12 @@ const Home = () => {
          {loader && (
     <div className="loader-overlay">
       <ScaleLoader
-        color="#00E5FF"
+        color="#5407d8"
         loading={loader}
-        height={80}
-        width={8}
-        radius={2}
-        margin={2}
+        height={70}
+        width={7}
+        radius={3}
+        margin={3}
       />
     </div>
   )}   
