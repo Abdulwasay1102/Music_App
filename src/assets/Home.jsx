@@ -14,7 +14,7 @@ const Home = () => {
     const fetchmusic = async ()=>{
         try{
             setLoader(true)
-        const res = await axios.get(`https://itunes.apple.com/search?term=${search}&media=music&limit=12`);
+        const res = await axios.get(`https://itunes.apple.com/search?term=${search}&media=music&limit=20`); 
         // console.log(res.data.results);
         setSong(res.data.results);
         setLoader(false)
